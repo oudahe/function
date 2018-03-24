@@ -7,6 +7,27 @@ header("content-type:text/html;charset=utf-8");
 (2)私有的成员属性-为了防止在类外引入这个存放对象的属性
 (3)私有的克隆方法-为了防止在类外通过clone成生另一个对象
 (4)公有的静态方法-为了让用户进行实例化对象的操作
+
+调用如下
+mysql测试
+$db=db::getIntance();
+var_dump($db);
+$sql="select * from acticle";
+$list=$db->getAll($sql);
+$db->p($list);
+$sql="select * from acticle where acticle_id=95";
+$list=$db->getRow($sql);
+$db->p($list);
+
+$sql="select title from acticle";
+$list=$db->getOne($sql);
+$db->p($list);
+//$list=$db->insert("users",$_POST);
+//$del=$db->deleteOne("users","id=26");
+//$del=$db->deleteAll("users","id in(23,24)");
+//$up=$db->update("users",$_POST,"id=27");
+//$id=$db->getInsertid();
+//print_R($id);
 */
 class db{
   //三私一共
